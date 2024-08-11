@@ -17,17 +17,15 @@ def get_message(db: Session, message_id: str):
 
 def get_messages(db: Session, chat_id: str):
     return db.query(Message).filter(Message.chat_id == chat_id).all()
-
 async def create_message(db: Session, message: CreateMessage):
     chat = db.query(Chat).filter(Chat.id == message.chat_id).first()
     if not chat:
-        raise ValueError("chat not found")
-    
+        raise ValueError("Chat not found")
     
     sender_ids = [message.sender_id, message.receptor_id]
     for sender_id in sender_ids:
-        if not db.query(User).filter(User.id ==sender_id).first():
-            raise ValueError(f"Lead ID {sender_id} not found")
+        if not db.query(User).filter(User.id == sender_id).first():
+            raise ValueError(f"User ID {sender_id} not found")
     
     db_message = Message(
         id=str(uuid.uuid4()),
@@ -35,17 +33,51 @@ async def create_message(db: Session, message: CreateMessage):
         sender_id=message.sender_id,
         receptor_id=message.receptor_id,
         content_text=message.content_text,
-        created_datetime =message.created_datetime
-        
+        created_datetime=message.created_datetime
     )
     db.add(db_message)
     db.commit()
     db.refresh(db_message)
-    
-    
-    await manager.send_personal_message(message.sender_id, message.receptor_id, message.content_text)
-    
+
+    # Send the message to the recipient
+    # await manager.send_personal_message(message.receptor_id, message.content_text)
+    await manager.send_personal_message(
+        sender_id=message.sender_id,
+        user_id=message.receptor_id,
+        message=message.content_text,
+        created_datetime=message.created_datetime
+    )
+
     return db_message
+
+# async def create_message(db: Session, message: CreateMessage):
+#     chat = db.query(Chat).filter(Chat.id == message.chat_id).first()
+#     if not chat:
+#         raise ValueError("chat not found")
+    
+    
+#     sender_ids = [message.sender_id, message.receptor_id]
+#     for sender_id in sender_ids:
+#         if not db.query(User).filter(User.id ==sender_id).first():
+#             raise ValueError(f"Lead ID {sender_id} not found")
+    
+#     db_message = Message(
+#         id=str(uuid.uuid4()),
+#         chat_id=message.chat_id,
+#         sender_id=message.sender_id,
+#         receptor_id=message.receptor_id,
+#         content_text=message.content_text,
+#         created_datetime =message.created_datetime
+        
+#     )
+#     db.add(db_message)
+#     db.commit()
+#     db.refresh(db_message)
+    
+    
+#     await manager.send_personal_message(message.sender_id, message.receptor_id, message.content_text)
+    
+#     return db_message
 
 def update_message(db: Session, message_id: str, message_update: MessageUpdate):
     db_message = get_message(db, message_id)
