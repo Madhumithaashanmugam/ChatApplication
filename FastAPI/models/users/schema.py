@@ -7,6 +7,7 @@ from datetime import datetime
 class CreateUser(BaseModel):
     first_name: Optional[str]
     last_name: Optional[str]
+    user_name: str
     email: str
     phone_number: str
     hashed_password: str
@@ -16,6 +17,7 @@ class CreateUser(BaseModel):
 class UpdateUser(BaseModel):
     first_name: str
     last_name: Optional[str]
+    user_name:str
     email: str
     phone_number: str
     created_datetime: datetime
@@ -25,6 +27,7 @@ class ViewUser(BaseModel):
     id: Optional[str]
     first_name: str
     last_name: str
+    user_name:str
     email: str
     phone_number: str
     created_datetime: Optional[datetime]

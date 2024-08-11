@@ -9,6 +9,7 @@ class User(Base):
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()), index=True)
     email = Column(String, unique=True, index=True, nullable=False)
+    user_name = Column(String,unique=True)
     first_name = Column(String)
     last_name = Column(String)
     phone_number = Column(String, unique=True)

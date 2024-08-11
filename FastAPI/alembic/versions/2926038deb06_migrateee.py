@@ -1,8 +1,8 @@
 """migrateee
 
-Revision ID: 915dd134be9b
+Revision ID: 2926038deb06
 Revises: 
-Create Date: 2024-08-11 17:00:51.191176
+Create Date: 2024-08-11 18:10:41.029935
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '915dd134be9b'
+revision: str = '2926038deb06'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -23,6 +23,7 @@ def upgrade() -> None:
     op.create_table('user',
     sa.Column('id', sa.String(), nullable=False),
     sa.Column('email', sa.String(), nullable=False),
+    sa.Column('user_name', sa.String(), nullable=True),
     sa.Column('first_name', sa.String(), nullable=True),
     sa.Column('last_name', sa.String(), nullable=True),
     sa.Column('phone_number', sa.String(), nullable=True),
@@ -30,7 +31,8 @@ def upgrade() -> None:
     sa.Column('created_datetime', sa.TIMESTAMP(timezone=True), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=False),
     sa.Column('updated_datetime', sa.TIMESTAMP(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('phone_number')
+    sa.UniqueConstraint('phone_number'),
+    sa.UniqueConstraint('user_name')
     )
     op.create_index(op.f('ix_user_email'), 'user', ['email'], unique=True)
     op.create_index(op.f('ix_user_id'), 'user', ['id'], unique=False)
