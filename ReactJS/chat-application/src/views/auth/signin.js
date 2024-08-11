@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import '../../assets/css/logpage/signin.css';
-import companyLogo from '../../assets/images/auth/company-logo.jpg';
+import companyLogo from '../../assets/images/auth/signin.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { togglePasswordVisibility } from '../../store/hidepassword';
 import JWTContext from '../../context/jwtcontext';

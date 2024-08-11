@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 // import {useAuth} from './jwtcontext';
 import jwtcontext from '../../context/jwtcontext';
 import{ useNavigate} from 'react-router-dom';
-import companyLogo from '../../assets/images/auth/company-logo.jpg';
+import companyLogo from '../../assets/images/auth/signup.png';
 import { Link } from 'react-router-dom';
 import '../../assets/css/logpage/signup.css';
 

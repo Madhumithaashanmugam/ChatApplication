@@ -41,48 +41,53 @@ const JWTContext = createContext({
 export const JWTProvider = ({ children }) => {
   const [state, dispatch] = useReducer(accountReducer, initialState);
   const navigate = useNavigate();  
-
   const login = async (email, password) => {
-    const response = await axios.post('http://127.0.0.1:8000/auth/signin', { email, password });
-    const { access_token, user } = response.data;
-    setSession(access_token);
-    dispatch({
-      type: LOGIN,
-      payload: {
-        user
-      }
-    });
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/account/signin', {
+        username: email,
+        password: password,
+      });
+      console.log('API Response:', response.data); // Log the full response
+      const { access_token, user } = response.data;
+      setSession(access_token);
+      dispatch({
+        type: LOGIN,
+        payload: {
+          user,
+        },
+      });
+    } catch (error) {
+      console.error('Signin error:', error.response ? error.response.data : error.message);
+    }
   };
-
   const logout = () => {
     setSession(null);
     dispatch({ type: LOGOUT });
   };
-
   const signup = async (firstName, lastName, phoneNumber, email, password) => {
-    const response = await axios.post('http://127.0.0.1:8000/auth/signup', {  
-      firstname: firstName,
-      lastname: lastName,
-      phone: phoneNumber,
-      email,
-      password,
-      otherinfo: '',
-    });
-    const { access_token, user } = response.data;
-    setSession(access_token);
-    dispatch({
-      type: SIGNUP,
-      payload: {
-        user
-      }
-    });
-    navigate('/signin');
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/account/login', {
+        firstname: firstName,
+        lastname: lastName,
+        phone: phoneNumber,
+        email,
+        password,
+        otherinfo: '',
+      });
+      const { access_token, user } = response.data;
+      setSession(access_token);
+      dispatch({
+        type: SIGNUP,
+        payload: {
+          user,
+        },
+      });
+      navigate('/signin');
+    } catch (error) {
+      console.error('Signup error:', error.response ? error.response.data : error.message);
+    }
   };
-
-  //it runs when it loading or refreshing 
-
-
-
+  
   useEffect(() => {
     const init = async () => {
       try {

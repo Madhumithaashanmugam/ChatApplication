@@ -18,7 +18,7 @@ from config import ALGORITHM,SECRET_KEY
 
 
 bcrypt_context = CryptContext(schemes=["pbkdf2_sha256", "bcrypt"], deprecated="auto")
-oauth2_bearer = OAuth2PasswordBearer(tokenUrl='/auth/token/json')
+oauth2_bearer = OAuth2PasswordBearer(tokenUrl='/account/login')
 
 def authenticate_user(email: str, password: str, session: Session):
     user = session.query(User).filter(User.email == email).first()

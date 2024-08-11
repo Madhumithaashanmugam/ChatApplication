@@ -1,3 +1,4 @@
+
 from fastapi import APIRouter,Depends,Body,HTTPException,status
 from typing import Dict
 from sqlalchemy.orm import Session
@@ -14,7 +15,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-@auth_router.post("/account/login", response_model=TokenData)
+@auth_router.post("/account/signin", response_model=TokenData)
 async def login_for_access_token(data: Dict[str, str] = Body(Data), session: Session = Depends(get_db)):
     try:
         email = data.get("username")
@@ -43,7 +44,7 @@ async def login_for_access_token(data: Dict[str, str] = Body(Data), session: Ses
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
-@auth_router.post("/auth/signin", response_model=TokenData)
+@auth_router.post("account/login", response_model=TokenData)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_db)):
     try:
         user = authenticate_user(form_data.username, form_data.password, session)

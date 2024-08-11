@@ -1,183 +1,3 @@
-/* .container-signin {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; 
-  align-items: center;
-  margin: 2%; 
-  height: 90vh;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 0px 20px rgba(141, 141, 149, 0.5);
-
-  box-sizing: border-box;
-}
-
-.img-logo-section-left-signin {
-  flex: 0 0 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.img-company-logo-signin {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-right: 15vh;
-  box-shadow: 0px 0px 20px rgba(141, 141, 149, 0.5);
-}
-
-.right-section-signin {
-  flex: 0 0 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.square-right-signin {
-  width: 100%;
-}
-
-.square-signin {
-  width: 100%;
-}
-
-.heading-signin {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.text-signin {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 20px;
-  color: #666;
-}
-
-.input-email-signin,
-.password-input-container-signin {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-.form-control-signin,
-.password-input-signin {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-  box-sizing: border-box;
-}
-
-.toggle-visibility-signin {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2em;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.container-for-login-signin {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.button-for-signin {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  margin-left: auto; 
-}
-
-.button-for-signin:hover {
-  background-color: #0056b3;
-}
-
-.forgot-password-button-section-signin {
-  display: flex;
-  align-items: center;
-}
-
-.forgot-password-button-signin {
-  padding: 10px;
-  color: #0056b3;
-  background: none;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-}
-
-.forgot-password-button-signin:hover {
-  color: #02365d;
-}
-
-.no-account-p-tag-signin {
-  text-align: center;
-  margin-top: 20px;
-  color: #666;
-}
-
-.no-account-p-tag-signin .f-w-400 {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.no-account-p-tag-signin .f-w-400:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .container-signin {
-      flex-direction: column;
-      margin: 1%;
-      height: auto;
-      padding: 5%;
-  }
-
-  .img-logo-section-left-signin {
-      display: none;
-  }
-
-  .right-section-signin {
-      flex: 1 0 auto;
-      width: 100%;
-      padding: 20px;
-      margin: 0;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center; 
-  }
-
-  .container-for-login-signin {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .button-for-signin {
-      margin-left: 0;
-      margin-top: 10px;
-  }
-} */
-
-/* signup.css */
-
 .container-signin {
   display: flex;
   flex-direction: row;
@@ -186,8 +6,8 @@
   margin: 2%; 
   height: 90vh;
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 0px 20px rgba(141, 141, 149, 0.5);
+  background-color: #7db2cb;
+  box-shadow: 0px 0px 20px rgba(5, 34, 83, 0.5);
   box-sizing: border-box;
 }
 
@@ -227,16 +47,17 @@
 
 .heading-signin {
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
+  font-family: 'Curlz MT', cursive;
   margin-bottom: 10px;
-  color: #333;
+  color: #040404;
 }
 
 .text-signin {
   text-align: center;
   font-size: 1.1em;
   margin-bottom: 20px;
-  color: #666;
+  color: #0b0b0b;
 }
 
 .input-email-signin,
@@ -276,7 +97,7 @@
 
 .button-for-signin {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #0b1116;
   color: white;
   border: none;
   border-radius: 5px;
@@ -285,7 +106,7 @@
 }
 
 .button-for-signin:hover {
-  background-color: #0056b3;
+  background-color: #022548;
 }
 
 .forgot-password-button-section-signin {
@@ -295,7 +116,7 @@
 
 .forgot-password-button-signin {
   padding: 10px;
-  color: #0056b3;
+  color: #080808;
   background: none;
   border: none;
   font-size: 1em;
@@ -309,11 +130,11 @@
 .no-account-p-tag-signin {
   text-align: center;
   margin-top: 20px;
-  color: #666;
+  color: #010612;
 }
 
 .no-account-p-tag-signin .f-w-400 {
-  color: #007bff;
+  color: #033469;
   text-decoration: none;
 }
 
