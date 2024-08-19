@@ -36,9 +36,9 @@ PostgreSQL (or any preferred SQL database)
 
 **Clone the repository:**
 
-git clone https://github.com/your-username/chat-app.git
+git clone https://github.com/Madhumithaashanmugam/ChatApplication.git
 
-cd chat-app/backend
+cd FastAPI
 
 **Create a virtual environment and activate it:**
 
@@ -62,10 +62,11 @@ python manage.py migrate
 
 uvicorn main:app --reload
 
-Frontend Setup
+## Frontend Setup
 
 **Navigate to the frontend directory:**
-cd ../frontend
+cd ../ReactJS
+
 
 **Install the dependencies:**
 
@@ -86,3 +87,15 @@ Open the application in your browser:
 http://localhost:3000
 
 Register or log in to start chatting in real-time with other users.
+
+
+![Chat-signup](https://github.com/user-attachments/assets/246eb346-69cc-4cff-822d-274fd6cd581d)
+
+
+
+
+
+
+
+
+![chat-signin](https://github.com/user-attachments/assets/8bff75ee-2cbf-43d5-a629-63abe251c1b8)
